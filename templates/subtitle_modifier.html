@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subtitle Modifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/spreek">Spreektekstinator</a> |
+        <a href="/subtitle_modifier">Subtitle Modifier</a> |
+        <a href="/syncsrt">SyncSrt</a>
+    </nav>
+    <h1>Subtitle Modifier</h1>
+    <form action="/run_subtitle_modifier" method="post" enctype="multipart/form-data">
+        <label for="srt_file">Select SRT file:</label>
+        <input type="file" id="srt_file" name="srt_file"><br><br>
+        <input type="submit" value="Modify">
+    </form>
+    {% if result %}
+        <p class="result">{{ result }}</p>
+    {% endif %}
+</body>
+</html>

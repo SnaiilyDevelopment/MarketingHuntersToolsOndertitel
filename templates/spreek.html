@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spreektekstinator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/spreek">Spreektekstinator</a> |
+        <a href="/subtitle_modifier">Subtitle Modifier</a> |
+        <a href="/syncsrt">SyncSrt</a>
+    </nav>
+    <h1>Spreektekstinator</h1>
+    <form action="/run_spreek" method="post" enctype="multipart/form-data">
+        <label for="srt_files">Select SRT files:</label>
+        <input type="file" id="srt_files" name="srt_files" multiple><br><br>
+        <label for="output_file_name">Output file name:</label>
+        <input type="text" id="output_file_name" name="output_file_name"><br><br>
+        <input type="submit" value="Convert">
+    </form>
+    {% if result %}
+        <p class="result">{{ result }}</p>
+    {% endif %}
+</body>
+</html>

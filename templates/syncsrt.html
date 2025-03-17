@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SyncSrt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/spreek">Spreektekstinator</a> |
+        <a href="/subtitle_modifier">Subtitle Modifier</a> |
+        <a href="/syncsrt">SyncSrt</a>
+    </nav>
+    <h1>SyncSrt</h1>
+    <form action="/run_syncsrt" method="post" enctype="multipart/form-data">
+        <label for="video_file">Select Video file:</label>
+        <input type="file" id="video_file" name="video_file"><br><br>
+        <label for="srt_file">Select SRT file:</label>
+        <input type="file" id="srt_file" name="srt_file"><br><br>
+        <input type="submit" value="Sync">
+    </form>
+    {% if result %}
+        <p class="result">{{ result }}</p>
+    {% endif %}
+</body>
+</html>
