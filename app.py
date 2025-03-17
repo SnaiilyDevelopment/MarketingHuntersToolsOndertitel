@@ -117,4 +117,7 @@ def run_syncsrt():
             print(f"Could not delete file {output_file_path}: {e}")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    try:
+        app.run(debug=True, host='0.0.0.0', port=8080)
+    except Exception as e:
+        print(f"Application failed to start: {e}")
